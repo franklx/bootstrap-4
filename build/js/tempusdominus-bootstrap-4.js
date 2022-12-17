@@ -1,6 +1,6 @@
 /*!@preserve
- * Tempus Dominus Bootstrap4 v5.39.0 (https://tempusdominus.github.io/bootstrap-4/)
- * Copyright 2016-2020 Jonathan Peterson and contributors
+ * Tempus Dominus Bootstrap4 v5.39.2 (https://tempusdominus.github.io/bootstrap-4/)
+ * Copyright 2016-2022 Jonathan Peterson and contributors
  * Licensed under MIT (https://github.com/tempusdominus/bootstrap-3/blob/master/LICENSE)
  */
 
@@ -27,11 +27,13 @@ if ((version[0] <= 2 && version[1] < 17) || (version[0] >= 3)) {
 
 +function () {
 
-function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 // ReSharper disable once InconsistentNaming
 var DateTimePicker = function ($, moment) {
@@ -2543,7 +2545,7 @@ var TempusDominusBootstrap4 = function ($) {
         daysViewHeader.eq(2).addClass('disabled');
       }
 
-      currentDate = this._viewDate.clone().startOf('M').startOf('w').startOf('d');
+      currentDate = this._viewDate.clone().startOf('M').startOf('w').add(12, 'hours');
 
       for (i = 0; i < 42; i++) {
         //always display 42 days (should show 6 weeks)
